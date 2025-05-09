@@ -1,6 +1,8 @@
-streamlit
 opencv-python-headless==4.9.0.80  
 numpy<2
 mediapipe
 pybind11>=2.12
-streamlit-webrtc==0.37.0
+streamlit==1.10.0
+streamlit-webrtc==0.44.0
+opencv-python==4.9.0
+numpy==1.26.4
