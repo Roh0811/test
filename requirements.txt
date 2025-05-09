@@ -3,3 +3,4 @@ opencv-python-headless==4.9.0.80
 numpy<2
 mediapipe
 pybind11>=2.12
+streamlit-webrtc==0.37.0
