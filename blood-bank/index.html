@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Bank Management System</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== LOGIN PAGE ===== -->
+  <div id="page-login" class="page active">
+    <div class="login-container">
+      <div class="login-left">
+        <div class="login-brand">
+          <svg class="brand-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4C24 4 8 16 8 28C8 36.837 15.163 44 24 44C32.837 44 40 36.837 40 28C40 16 24 4 24 4Z" fill="#DC2626"/>
+            <path d="M24 14C24 14 14 22 14 29C14 34.523 18.477 39 24 39C29.523 39 34 34.523 34 29C34 22 24 14 24 14Z" fill="#FCA5A5"/>
+            <path d="M24 22C24 22 18 27 18 31C18 34.314 20.686 37 24 37C27.314 37 30 34.314 30 31C30 27 24 22 24 22Z" fill="white"/>
+          </svg>
+          <span class="brand-name">BloodBank<strong>Pro</strong></span>
+        </div>
+        <h1>Saving Lives,<br />One Drop at a Time</h1>
+        <p>A comprehensive blood bank management platform connecting donors, hospitals, and administrators for seamless blood supply chain management.</p>
+        <div class="login-stats">
+          <div class="stat-item">
+            <span class="stat-number">12,400+</span>
+            <span class="stat-label">Donors Registered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3,200</span>
+            <span class="stat-label">Units Available</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Request Fulfilled</span>
+          </div>
+        </div>
+        <!-- Blood drop illustration -->
+        <div class="illustration">
+          <svg viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Heart rate line -->
+            <polyline points="10,130 50,130 70,80 90,170 110,90 130,150 150,130 300,130" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none"/>
+            <!-- Large blood drop -->
+            <path d="M220 60C220 60 190 90 190 115C190 131.569 203.431 145 220 145C236.569 145 250 131.569 250 115C250 90 220 60 220 60Z" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+            <!-- Small blood drops -->
+            <path d="M80 170C80 170 65 185 65 195C65 202.18 70.82 208 78 208C85.18 208 91 202.18 91 195C91 185 80 170 80 170Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <path d="M160 185C160 185 148 198 148 206C148 211.523 152.477 216 158 216C163.523 216 168 211.523 168 206C168 198 160 185 160 185Z" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <!-- Medical cross -->
+            <rect x="30" y="40" width="8" height="30" rx="2" fill="rgba(255,255,255,0.25)"/>
+            <rect x="21" y="49" width="26" height="12" rx="2" fill="rgba(255,255,255,0.25)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="login-right">
+        <div class="login-form-wrapper">
+          <h2>Welcome Back</h2>
+          <p class="login-sub">Sign in to your Blood Bank account</p>
+
+          <div class="role-tabs">
+            <button class="role-tab active" data-role="admin">Admin</button>
+            <button class="role-tab" data-role="hospital">Hospital</button>
+            <button class="role-tab" data-role="donor">Donor</button>
+          </div>
+
+          <form id="login-form" class="login-form">
+            <div class="form-group">
+              <label>Email Address</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                <input type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                <input type="password" placeholder="••••••••" required />
+              </div>
+            </div>
+            <div class="form-options">
+              <label class="checkbox-label">
+                <input type="checkbox" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn-primary btn-full" id="login-btn">Sign In</button>
+          </form>
+          <p class="register-link">Don't have an account? <a href="#" onclick="showPage('donor-registration'); return false;">Register as Donor</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN DASHBOARD LAYOUT ===== -->
+  <div id="main-layout" class="main-layout hidden">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <svg class="brand-icon-sm" viewBox="0 0 48 48" fill="none">
+            <path d="M24 4C24 4 8 16 8 28C8 36.837 15.163 44 24 44C32.837 44 40 36.837 40 28C40 16 24 4 24 4Z" fill="#DC2626"/>
+            <path d="M24 14C24 14 14 22 14 29C14 34.523 18.477 39 24 39C29.523 39 34 34.523 34 29C34 22 24 14 24 14Z" fill="#FCA5A5"/>
+          </svg>
+          <span>BloodBank<strong>Pro</strong></span>
+        </div>
+        <button class="sidebar-toggle" id="sidebar-close" onclick="toggleSidebar()">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Main</div>
+        <a href="#" class="nav-item active" data-page="admin-dashboard" onclick="navigate(this)">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+          Dashboard
+        </a>
+        <a href="#" class="nav-item" data-page="blood-inventory" onclick="navigate(this)">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"/></svg>
+          Blood Inventory
+        </a>
+        <a href="#" class="nav-item" data-page="donor-registration" onclick="navigate(this)">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/></svg>
+          Donor Registration
+        </a>
+
+        <div class="nav-section-label">Requests</div>
+        <a href="#" class="nav-item" data-page="hospital-request" onclick="navigate(this)">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+          Blood Request
+        </a>
+        <a href="#" class="nav-item" data-page="emergency-alerts" onclick="navigate(this)">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+          Emergency Alerts
+          <span class="badge-alert">3</span>
+        </a>
+
+        <div class="nav-section-label">Account</div>
+        <a href="#" class="nav-item" onclick="logout(); return false;">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/></svg>
+          Logout
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">A</div>
+          <div class="user-details">
+            <span class="user-name">Dr. Admin</span>
+            <span class="user-role" id="sidebar-role">Administrator</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-btn" onclick="toggleSidebar()">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+          </button>
+          <h1 class="page-title" id="page-title">Dashboard</h1>
+        </div>
+        <div class="topbar-right">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+            <input type="text" placeholder="Search..." />
+          </div>
+          <button class="topbar-btn notification-btn" onclick="navigate(document.querySelector('[data-page=emergency-alerts]'))">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+            <span class="notif-dot"></span>
+          </button>
+          <div class="topbar-avatar">A</div>
+        </div>
+      </header>
+
+      <!-- PAGE: Admin Dashboard -->
+      <main id="admin-dashboard" class="content-page active">
+        <div class="page-header">
+          <div>
+            <h2>Overview</h2>
+            <p class="page-desc">Blood bank operations at a glance</p>
+          </div>
+          <div class="page-header-actions">
+            <span class="date-badge">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+              March 11, 2026
+            </span>
+          </div>
+        </div>
+
+        <!-- Overview Cards -->
+        <div class="cards-grid">
+          <div class="card stat-card">
+            <div class="stat-card-icon bg-red">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+            </div>
+            <div class="stat-card-info">
+              <span class="stat-label">Total Donors</span>
+              <span class="stat-value">12,487</span>
+              <span class="stat-change positive">+234 this month</span>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-icon bg-blue">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="stat-card-info">
+              <span class="stat-label">Available Blood Units</span>
+              <span class="stat-value">3,214</span>
+              <span class="stat-change positive">+156 units</span>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-icon bg-orange">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9v-2h2v2zm0-4H9V5h2v4z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="stat-card-info">
+              <span class="stat-label">Pending Requests</span>
+              <span class="stat-value">47</span>
+              <span class="stat-change negative">8 urgent</span>
+            </div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-card-icon bg-yellow">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="stat-card-info">
+              <span class="stat-label">Expiring Units (7 days)</span>
+              <span class="stat-value">128</span>
+              <span class="stat-change negative">Action needed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts & Table Row -->
+        <div class="dashboard-grid">
+          <!-- Blood Stock by Type Chart -->
+          <div class="card chart-card">
+            <div class="card-header">
+              <h3>Blood Stock by Type</h3>
+              <span class="card-badge">Live</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="bloodStockChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Monthly Donations Trend -->
+          <div class="card chart-card">
+            <div class="card-header">
+              <h3>Monthly Donations</h3>
+              <select class="card-select">
+                <option>Last 6 months</option>
+                <option>Last year</option>
+              </select>
+            </div>
+            <div class="chart-container">
+              <canvas id="donationTrendChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blood Stock Table -->
+        <div class="card table-card">
+          <div class="card-header">
+            <h3>Blood Group Inventory</h3>
+            <button class="btn-secondary btn-sm" onclick="navigate(document.querySelector('[data-page=blood-inventory]'))">View All</button>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Blood Group</th>
+                  <th>Available Units</th>
+                  <th>Reserved</th>
+                  <th>Expiring Soon</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">A+</span></td>
+                  <td>620</td>
+                  <td>45</td>
+                  <td>12</td>
+                  <td><span class="status-badge status-good">Adequate</span></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">A−</span></td>
+                  <td>180</td>
+                  <td>20</td>
+                  <td>5</td>
+                  <td><span class="status-badge status-low">Low Stock</span></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">B+</span></td>
+                  <td>540</td>
+                  <td>30</td>
+                  <td>8</td>
+                  <td><span class="status-badge status-good">Adequate</span></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">B−</span></td>
+                  <td>95</td>
+                  <td>15</td>
+                  <td>3</td>
+                  <td><span class="status-badge status-critical">Critical</span></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">O+</span></td>
+                  <td>890</td>
+                  <td>60</td>
+                  <td>22</td>
+                  <td><span class="status-badge status-good">Adequate</span></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">O−</span></td>
+                  <td>210</td>
+                  <td>35</td>
+                  <td>18</td>
+                  <td><span class="status-badge status-warning">Monitor</span></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">AB+</span></td>
+                  <td>430</td>
+                  <td>25</td>
+                  <td>6</td>
+                  <td><span class="status-badge status-good">Adequate</span></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">AB−</span></td>
+                  <td>249</td>
+                  <td>10</td>
+                  <td>54</td>
+                  <td><span class="status-badge status-warning">Monitor</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Recent Activity</h3>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon bg-green"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+              <div class="activity-content">
+                <p><strong>City Hospital</strong> request for 5 units of <strong>O+</strong> fulfilled</p>
+                <span class="activity-time">2 minutes ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon bg-blue"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6z"/></svg></div>
+              <div class="activity-content">
+                <p>New donor <strong>Rahul Sharma</strong> registered with blood group <strong>B+</strong></p>
+                <span class="activity-time">15 minutes ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon bg-orange"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg></div>
+              <div class="activity-content">
+                <p>Emergency request from <strong>Apollo Hospital</strong> for <strong>AB−</strong> blood group</p>
+                <span class="activity-time">32 minutes ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon bg-yellow"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg></div>
+              <div class="activity-content">
+                <p><strong>48 units</strong> of A+ blood expiring in <strong>3 days</strong> — action needed</p>
+                <span class="activity-time">1 hour ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- PAGE: Blood Inventory -->
+      <main id="blood-inventory" class="content-page">
+        <div class="page-header">
+          <div>
+            <h2>Blood Inventory</h2>
+            <p class="page-desc">Manage and monitor blood stock levels</p>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn-primary btn-sm">+ Add Stock</button>
+          </div>
+        </div>
+
+        <!-- Inventory Summary -->
+        <div class="cards-grid cards-grid-4">
+          <div class="card mini-stat-card">
+            <span class="mini-stat-label">Total Units</span>
+            <span class="mini-stat-value">3,214</span>
+          </div>
+          <div class="card mini-stat-card">
+            <span class="mini-stat-label">Expiring Soon</span>
+            <span class="mini-stat-value text-orange">128</span>
+          </div>
+          <div class="card mini-stat-card">
+            <span class="mini-stat-label">Low Stock Groups</span>
+            <span class="mini-stat-value text-red">2</span>
+          </div>
+          <div class="card mini-stat-card">
+            <span class="mini-stat-label">Storage Capacity</span>
+            <span class="mini-stat-value">64%</span>
+          </div>
+        </div>
+
+        <!-- Stock Level Bars -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Stock Level by Blood Group</h3>
+          </div>
+          <div class="stock-bars">
+            <div class="stock-bar-item">
+              <span class="stock-label">A+</span>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 82%" data-level="adequate"></div>
+              </div>
+              <span class="stock-units">620 units</span>
+            </div>
+            <div class="stock-bar-item">
+              <span class="stock-label">A−</span>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 24%" data-level="low"></div>
+              </div>
+              <span class="stock-units text-orange">180 units</span>
+            </div>
+            <div class="stock-bar-item">
+              <span class="stock-label">B+</span>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 72%" data-level="adequate"></div>
+              </div>
+              <span class="stock-units">540 units</span>
+            </div>
+            <div class="stock-bar-item">
+              <span class="stock-label">B−</span>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 13%" data-level="critical"></div>
+              </div>
+              <span class="stock-units text-red">95 units</span>
+            </div>
+            <div class="stock-bar-item">
+              <span class="stock-label">O+</span>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 89%" data-level="adequate"></div>
+              </div>
+              <span class="stock-units">890 units</span>
+            </div>
+            <div class="stock-bar-item">
+              <span class="stock-label">O−</span>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 28%" data-level="warning"></div>
+              </div>
+              <span class="stock-units text-orange">210 units</span>
+            </div>
+            <div class="stock-bar-item">
+              <span class="stock-label">AB+</span>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 57%" data-level="adequate"></div>
+              </div>
+              <span class="stock-units">430 units</span>
+            </div>
+            <div class="stock-bar-item">
+              <span class="stock-label">AB−</span>
+              <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 33%" data-level="warning"></div>
+              </div>
+              <span class="stock-units text-orange">249 units</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Inventory Table -->
+        <div class="card table-card">
+          <div class="card-header">
+            <h3>Detailed Inventory</h3>
+            <div class="table-filters">
+              <select class="card-select">
+                <option>All Groups</option>
+                <option>A+</option><option>A−</option>
+                <option>B+</option><option>B−</option>
+                <option>O+</option><option>O−</option>
+                <option>AB+</option><option>AB−</option>
+              </select>
+              <select class="card-select">
+                <option>All Status</option>
+                <option>Adequate</option>
+                <option>Low</option>
+                <option>Critical</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Blood Group</th>
+                  <th>Quantity</th>
+                  <th>Storage Date</th>
+                  <th>Expiry Date</th>
+                  <th>Storage Temp</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">A+</span></td>
+                  <td>200 units</td>
+                  <td>Jan 10, 2026</td>
+                  <td>Mar 20, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-good">Fresh</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">A+</span></td>
+                  <td>420 units</td>
+                  <td>Jan 25, 2026</td>
+                  <td>Apr 4, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-good">Fresh</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">A−</span></td>
+                  <td>180 units</td>
+                  <td>Feb 1, 2026</td>
+                  <td>Mar 13, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-warning">Expiring Soon</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">B+</span></td>
+                  <td>540 units</td>
+                  <td>Feb 14, 2026</td>
+                  <td>Mar 25, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-good">Fresh</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">B−</span></td>
+                  <td>95 units</td>
+                  <td>Jan 20, 2026</td>
+                  <td>Mar 12, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-critical">Expiring</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">O+</span></td>
+                  <td>890 units</td>
+                  <td>Feb 20, 2026</td>
+                  <td>Apr 1, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-good">Fresh</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">O−</span></td>
+                  <td>210 units</td>
+                  <td>Feb 5, 2026</td>
+                  <td>Mar 17, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-warning">Expiring Soon</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">AB+</span></td>
+                  <td>430 units</td>
+                  <td>Feb 28, 2026</td>
+                  <td>Apr 9, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-good">Fresh</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+                <tr>
+                  <td><span class="blood-group-badge bg-red-light">AB−</span></td>
+                  <td>249 units</td>
+                  <td>Jan 30, 2026</td>
+                  <td>Mar 11, 2026</td>
+                  <td>4°C</td>
+                  <td><span class="status-badge status-critical">Expiring</span></td>
+                  <td><button class="btn-icon">Use</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+
+      <!-- PAGE: Donor Registration -->
+      <main id="donor-registration" class="content-page">
+        <div class="page-header">
+          <div>
+            <h2>Donor Registration</h2>
+            <p class="page-desc">Register a new blood donor</p>
+          </div>
+        </div>
+
+        <div class="form-layout">
+          <div class="card form-card">
+            <div class="card-header">
+              <h3>Personal Information</h3>
+            </div>
+            <form id="donor-form" onsubmit="submitDonorForm(event)">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Full Name <span class="required">*</span></label>
+                  <input type="text" placeholder="Enter full name" required />
+                </div>
+                <div class="form-group">
+                  <label>Age <span class="required">*</span></label>
+                  <input type="number" placeholder="Enter age (18-65)" min="18" max="65" required />
+                </div>
+                <div class="form-group">
+                  <label>Blood Group <span class="required">*</span></label>
+                  <select required>
+                    <option value="">Select blood group</option>
+                    <option>A+</option><option>A−</option>
+                    <option>B+</option><option>B−</option>
+                    <option>O+</option><option>O−</option>
+                    <option>AB+</option><option>AB−</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Contact Number <span class="required">*</span></label>
+                  <input type="tel" placeholder="+91 98765 43210" required />
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" placeholder="donor@example.com" />
+                </div>
+                <div class="form-group">
+                  <label>Gender <span class="required">*</span></label>
+                  <select required>
+                    <option value="">Select gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Last Donation Date</label>
+                  <input type="date" />
+                </div>
+                <div class="form-group">
+                  <label>Date of Birth <span class="required">*</span></label>
+                  <input type="date" required />
+                </div>
+                <div class="form-group form-group-full">
+                  <label>Address <span class="required">*</span></label>
+                  <textarea placeholder="Enter full address" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label>City <span class="required">*</span></label>
+                  <input type="text" placeholder="City" required />
+                </div>
+                <div class="form-group">
+                  <label>State</label>
+                  <input type="text" placeholder="State" />
+                </div>
+              </div>
+
+              <div class="card-header" style="margin-top:1.5rem; padding:0 0 1rem; border-top: 1px solid var(--gray-200);">
+                <h3>Medical Information</h3>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Weight (kg) <span class="required">*</span></label>
+                  <input type="number" placeholder="Minimum 50kg" min="50" required />
+                </div>
+                <div class="form-group">
+                  <label>Hemoglobin (g/dL)</label>
+                  <input type="number" placeholder="Normal: 12.5+" step="0.1" />
+                </div>
+                <div class="form-group form-group-full">
+                  <label>Medical Conditions / Allergies</label>
+                  <textarea placeholder="List any known medical conditions or allergies (optional)" rows="2"></textarea>
+                </div>
+              </div>
+
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" required />
+                  <span>I confirm all information provided is accurate and I consent to blood donation screening</span>
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="resetDonorForm()">Clear Form</button>
+                <button type="submit" class="btn-primary">Register Donor</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Donor eligibility panel -->
+          <div class="side-panel">
+            <div class="card">
+              <div class="card-header">
+                <h3>Eligibility Criteria</h3>
+              </div>
+              <ul class="eligibility-list">
+                <li class="eligible"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Age between 18–65 years</li>
+                <li class="eligible"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Weight at least 50 kg</li>
+                <li class="eligible"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Hemoglobin ≥ 12.5 g/dL</li>
+                <li class="eligible"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Last donation 3+ months ago</li>
+                <li class="eligible"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>No major medical conditions</li>
+                <li class="not-eligible"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>No active infections or fever</li>
+                <li class="not-eligible"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>Not pregnant or breastfeeding</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3>Registered Today</h3>
+              </div>
+              <div class="mini-donors">
+                <div class="mini-donor">
+                  <div class="donor-avatar">RS</div>
+                  <div><p class="donor-name">Rahul Sharma</p><span class="donor-tag">B+</span></div>
+                </div>
+                <div class="mini-donor">
+                  <div class="donor-avatar">PK</div>
+                  <div><p class="donor-name">Priya Kumar</p><span class="donor-tag">O+</span></div>
+                </div>
+                <div class="mini-donor">
+                  <div class="donor-avatar">AV</div>
+                  <div><p class="donor-name">Amit Verma</p><span class="donor-tag">A+</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- PAGE: Hospital Blood Request -->
+      <main id="hospital-request" class="content-page">
+        <div class="page-header">
+          <div>
+            <h2>Blood Request</h2>
+            <p class="page-desc">Submit a blood request for your hospital</p>
+          </div>
+        </div>
+
+        <div class="form-layout">
+          <div class="card form-card">
+            <div class="card-header">
+              <h3>Request Details</h3>
+            </div>
+            <form id="request-form" onsubmit="submitRequestForm(event)">
+              <div class="form-grid">
+                <div class="form-group form-group-full">
+                  <label>Hospital Name <span class="required">*</span></label>
+                  <input type="text" placeholder="Enter hospital name" required />
+                </div>
+                <div class="form-group">
+                  <label>Contact Person <span class="required">*</span></label>
+                  <input type="text" placeholder="Doctor / staff name" required />
+                </div>
+                <div class="form-group">
+                  <label>Contact Number <span class="required">*</span></label>
+                  <input type="tel" placeholder="+91 98765 43210" required />
+                </div>
+                <div class="form-group">
+                  <label>Blood Group Required <span class="required">*</span></label>
+                  <select required>
+                    <option value="">Select blood group</option>
+                    <option>A+</option><option>A−</option>
+                    <option>B+</option><option>B−</option>
+                    <option>O+</option><option>O−</option>
+                    <option>AB+</option><option>AB−</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Units Required <span class="required">*</span></label>
+                  <input type="number" placeholder="Number of units" min="1" required />
+                </div>
+                <div class="form-group">
+                  <label>Required By <span class="required">*</span></label>
+                  <input type="datetime-local" required />
+                </div>
+                <div class="form-group form-group-full">
+                  <label>Emergency Priority <span class="required">*</span></label>
+                  <div class="priority-options">
+                    <label class="priority-option">
+                      <input type="radio" name="priority" value="routine" checked />
+                      <span class="priority-card priority-routine">
+                        <strong>Routine</strong>
+                        <small>24–48 hours</small>
+                      </span>
+                    </label>
+                    <label class="priority-option">
+                      <input type="radio" name="priority" value="urgent" />
+                      <span class="priority-card priority-urgent">
+                        <strong>Urgent</strong>
+                        <small>4–6 hours</small>
+                      </span>
+                    </label>
+                    <label class="priority-option">
+                      <input type="radio" name="priority" value="emergency" />
+                      <span class="priority-card priority-emergency">
+                        <strong>Emergency</strong>
+                        <small>Within 1 hour</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group form-group-full">
+                  <label>Patient Condition / Notes</label>
+                  <textarea placeholder="Describe patient condition, surgery details, or any special notes" rows="3"></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-secondary">Clear</button>
+                <button type="submit" class="btn-primary">Submit Request</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Request tracking panel -->
+          <div class="side-panel">
+            <div class="card">
+              <div class="card-header">
+                <h3>Active Requests</h3>
+              </div>
+              <div class="request-list">
+                <div class="request-item">
+                  <div class="request-header">
+                    <span class="blood-group-badge bg-red-light">O−</span>
+                    <span class="status-badge status-critical">Emergency</span>
+                  </div>
+                  <p class="request-hospital">Apollo Hospital</p>
+                  <p class="request-detail">5 units · Dr. Mehta</p>
+                  <div class="request-footer">
+                    <span class="request-time">Requested 20 min ago</span>
+                    <button class="btn-sm btn-primary">Approve</button>
+                  </div>
+                </div>
+                <div class="request-item">
+                  <div class="request-header">
+                    <span class="blood-group-badge bg-red-light">A+</span>
+                    <span class="status-badge status-warning">Urgent</span>
+                  </div>
+                  <p class="request-hospital">City Medical Center</p>
+                  <p class="request-detail">3 units · Dr. Singh</p>
+                  <div class="request-footer">
+                    <span class="request-time">Requested 1 hr ago</span>
+                    <button class="btn-sm btn-primary">Approve</button>
+                  </div>
+                </div>
+                <div class="request-item">
+                  <div class="request-header">
+                    <span class="blood-group-badge bg-red-light">B+</span>
+                    <span class="status-badge status-good">Routine</span>
+                  </div>
+                  <p class="request-hospital">Sunrise Hospital</p>
+                  <p class="request-detail">2 units · Nurse Priya</p>
+                  <div class="request-footer">
+                    <span class="request-time">Requested 3 hr ago</span>
+                    <button class="btn-sm btn-primary">Approve</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- PAGE: Emergency Alerts -->
+      <main id="emergency-alerts" class="content-page">
+        <div class="page-header">
+          <div>
+            <h2>Emergency Alerts</h2>
+            <p class="page-desc">Urgent blood requests requiring immediate action</p>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn-danger btn-sm pulse-btn" onclick="notifyAllDonors()">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+              Notify All Donors
+            </button>
+          </div>
+        </div>
+
+        <!-- Alert Banner -->
+        <div class="alert-banner">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+          <strong>3 Critical Emergencies Active</strong> — Immediate action required. Available donors in vicinity have been alerted.
+        </div>
+
+        <!-- Emergency Requests -->
+        <div class="emergency-cards">
+          <div class="card emergency-card critical">
+            <div class="emergency-header">
+              <div class="emergency-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+              </div>
+              <div class="emergency-meta">
+                <span class="status-badge status-critical">CRITICAL</span>
+                <span class="emergency-time">8 min ago</span>
+              </div>
+            </div>
+            <div class="emergency-body">
+              <div class="emergency-blood">
+                <span class="blood-group-large">O−</span>
+                <span class="blood-qty">8 Units Needed</span>
+              </div>
+              <div class="emergency-info">
+                <h4>Apollo Super Speciality Hospital</h4>
+                <p>Patient: Road accident trauma · ICU admission</p>
+                <p>Contact: Dr. Rajesh Mehta · +91 98765 43210</p>
+                <p>Required by: <strong>Within 30 minutes</strong></p>
+              </div>
+            </div>
+            <div class="emergency-actions">
+              <div class="donor-match">
+                <span class="match-label">3 matching donors nearby</span>
+                <div class="donor-avatars">
+                  <div class="donor-avatar-sm">RS</div>
+                  <div class="donor-avatar-sm">MK</div>
+                  <div class="donor-avatar-sm">+1</div>
+                </div>
+              </div>
+              <div class="action-btns">
+                <button class="btn-secondary btn-sm" onclick="notifyDonors(this)">Notify Donors</button>
+                <button class="btn-primary btn-sm">Dispatch Blood</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card emergency-card urgent">
+            <div class="emergency-header">
+              <div class="emergency-icon urgent-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              </div>
+              <div class="emergency-meta">
+                <span class="status-badge status-warning">URGENT</span>
+                <span class="emergency-time">25 min ago</span>
+              </div>
+            </div>
+            <div class="emergency-body">
+              <div class="emergency-blood">
+                <span class="blood-group-large">AB−</span>
+                <span class="blood-qty">4 Units Needed</span>
+              </div>
+              <div class="emergency-info">
+                <h4>AIIMS Delhi — Surgical Department</h4>
+                <p>Patient: Cardiac surgery complication</p>
+                <p>Contact: Dr. Sharma · +91 87654 32109</p>
+                <p>Required by: <strong>Within 2 hours</strong></p>
+              </div>
+            </div>
+            <div class="emergency-actions">
+              <div class="donor-match">
+                <span class="match-label">1 matching donor available</span>
+                <div class="donor-avatars">
+                  <div class="donor-avatar-sm">AV</div>
+                </div>
+              </div>
+              <div class="action-btns">
+                <button class="btn-secondary btn-sm" onclick="notifyDonors(this)">Notify Donors</button>
+                <button class="btn-primary btn-sm">Dispatch Blood</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card emergency-card urgent">
+            <div class="emergency-header">
+              <div class="emergency-icon urgent-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              </div>
+              <div class="emergency-meta">
+                <span class="status-badge status-warning">URGENT</span>
+                <span class="emergency-time">1 hr ago</span>
+              </div>
+            </div>
+            <div class="emergency-body">
+              <div class="emergency-blood">
+                <span class="blood-group-large">B−</span>
+                <span class="blood-qty">6 Units Needed</span>
+              </div>
+              <div class="emergency-info">
+                <h4>Fortis Hospital — Neonatal ICU</h4>
+                <p>Patient: Premature birth complication</p>
+                <p>Contact: Dr. Priya · +91 76543 21098</p>
+                <p>Required by: <strong>Within 3 hours</strong></p>
+              </div>
+            </div>
+            <div class="emergency-actions">
+              <div class="donor-match">
+                <span class="match-label">2 matching donors nearby</span>
+                <div class="donor-avatars">
+                  <div class="donor-avatar-sm">PK</div>
+                  <div class="donor-avatar-sm">NK</div>
+                </div>
+              </div>
+              <div class="action-btns">
+                <button class="btn-secondary btn-sm" onclick="notifyDonors(this)">Notify Donors</button>
+                <button class="btn-primary btn-sm">Dispatch Blood</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notification Log -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Notification Log</h3>
+          </div>
+          <div class="notif-log" id="notif-log">
+            <div class="notif-log-item">
+              <span class="notif-log-time">08:45 AM</span>
+              <span class="notif-log-msg">SMS alert sent to 3 O− donors within 10km radius of Apollo Hospital</span>
+            </div>
+            <div class="notif-log-item">
+              <span class="notif-log-time">08:30 AM</span>
+              <span class="notif-log-msg">Push notification sent to 12 AB− donors for AIIMS Delhi request</span>
+            </div>
+            <div class="notif-log-item">
+              <span class="notif-log-time">07:52 AM</span>
+              <span class="notif-log-msg">Email alert sent to 5 B− donors for Fortis Hospital emergency</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
