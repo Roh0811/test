@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnFlow — Interactive Learning Platform</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-name">LearnFlow</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-view="dashboard">
+        <span class="nav-icon">🏠</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="#" class="nav-item" data-view="courses">
+        <span class="nav-icon">📚</span>
+        <span>Browse Courses</span>
+      </a>
+      <a href="#" class="nav-item" data-view="my-learning">
+        <span class="nav-icon">🎓</span>
+        <span>My Learning</span>
+      </a>
+      <a href="#" class="nav-item" data-view="progress">
+        <span class="nav-icon">📈</span>
+        <span>Progress</span>
+      </a>
+      <a href="#" class="nav-item" data-view="certificates">
+        <span class="nav-icon">🏆</span>
+        <span>Certificates</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-avatar">R</div>
+      <div class="user-info">
+        <span class="user-name">Rohit Kumar</span>
+        <span class="user-plan">Pro Member</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" id="main-content">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle sidebar">☰</button>
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search courses, topics, instructors…" />
+      </div>
+      <div class="topbar-actions">
+        <button class="btn-icon" title="Notifications">
+          🔔
+          <span class="badge">3</span>
+        </button>
+        <div class="user-avatar small">R</div>
+      </div>
+    </header>
+
+    <!-- ===== VIEW: DASHBOARD ===== -->
+    <section class="view active" id="view-dashboard">
+      <div class="page-header">
+        <h1>Good morning, Rohit! 👋</h1>
+        <p class="subtitle">Continue where you left off or explore something new.</p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #ede9fe;">📚</div>
+          <div class="stat-info">
+            <span class="stat-value">12</span>
+            <span class="stat-label">Courses Enrolled</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #dcfce7;">✅</div>
+          <div class="stat-info">
+            <span class="stat-value">4</span>
+            <span class="stat-label">Completed</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef9c3;">⏱️</div>
+          <div class="stat-info">
+            <span class="stat-value">48h</span>
+            <span class="stat-label">Hours Learned</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fee2e2;">🏆</div>
+          <div class="stat-info">
+            <span class="stat-value">3</span>
+            <span class="stat-label">Certificates</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continue Learning -->
+      <div class="section-header">
+        <h2>Continue Learning</h2>
+        <a href="#" class="link-all" data-view="my-learning">View all →</a>
+      </div>
+      <div class="continue-grid">
+        <div class="continue-card" data-course="1">
+          <div class="course-thumb" style="background: linear-gradient(135deg,#6366f1,#8b5cf6);">
+            <span>🐍</span>
+          </div>
+          <div class="continue-info">
+            <h3>Python for Data Science</h3>
+            <p>Lesson 12 of 24 · Module: NumPy Basics</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:50%"></div>
+            </div>
+            <div class="progress-meta">
+              <span>50% complete</span>
+              <button class="btn-resume" data-course="1">Resume →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="continue-card" data-course="2">
+          <div class="course-thumb" style="background: linear-gradient(135deg,#f59e0b,#ef4444);">
+            <span>⚛️</span>
+          </div>
+          <div class="continue-info">
+            <h3>React & Modern JavaScript</h3>
+            <p>Lesson 8 of 30 · Module: Hooks Deep Dive</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:27%"></div>
+            </div>
+            <div class="progress-meta">
+              <span>27% complete</span>
+              <button class="btn-resume" data-course="2">Resume →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="continue-card" data-course="3">
+          <div class="course-thumb" style="background: linear-gradient(135deg,#10b981,#059669);">
+            <span>🗄️</span>
+          </div>
+          <div class="continue-info">
+            <h3>SQL Mastery</h3>
+            <p>Lesson 18 of 20 · Module: Window Functions</p>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width:90%"></div>
+            </div>
+            <div class="progress-meta">
+              <span>90% complete</span>
+              <button class="btn-resume" data-course="3">Resume →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended -->
+      <div class="section-header">
+        <h2>Recommended for You</h2>
+        <a href="#" class="link-all" data-view="courses">Browse all →</a>
+      </div>
+      <div class="course-grid" id="recommended-grid"></div>
+    </section>
+
+    <!-- ===== VIEW: BROWSE COURSES ===== -->
+    <section class="view" id="view-courses">
+      <div class="page-header">
+        <h1>Browse Courses</h1>
+        <p class="subtitle">Explore <span id="course-count">0</span> courses across all categories.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-bar">
+        <div class="filter-chips" id="category-filters">
+          <button class="chip active" data-category="all">All</button>
+          <button class="chip" data-category="programming">Programming</button>
+          <button class="chip" data-category="data-science">Data Science</button>
+          <button class="chip" data-category="design">Design</button>
+          <button class="chip" data-category="business">Business</button>
+          <button class="chip" data-category="devops">DevOps</button>
+        </div>
+        <select class="sort-select" id="sort-select">
+          <option value="popular">Most Popular</option>
+          <option value="newest">Newest</option>
+          <option value="rating">Highest Rated</option>
+        </select>
+      </div>
+
+      <div class="course-grid" id="browse-grid"></div>
+    </section>
+
+    <!-- ===== VIEW: MY LEARNING ===== -->
+    <section class="view" id="view-my-learning">
+      <div class="page-header">
+        <h1>My Learning</h1>
+        <p class="subtitle">Your enrolled courses and progress at a glance.</p>
+      </div>
+      <div class="tabs">
+        <button class="tab active" data-tab="in-progress">In Progress</button>
+        <button class="tab" data-tab="completed">Completed</button>
+        <button class="tab" data-tab="bookmarked">Bookmarked</button>
+      </div>
+      <div class="my-course-list" id="my-course-list"></div>
+    </section>
+
+    <!-- ===== VIEW: LESSON PLAYER ===== -->
+    <section class="view" id="view-lesson">
+      <button class="btn-back" id="btn-back">← Back</button>
+      <div class="lesson-layout">
+        <!-- Video / Content area -->
+        <div class="lesson-main">
+          <div class="video-player" id="video-player">
+            <div class="video-placeholder">
+              <span class="play-icon">▶</span>
+              <p id="lesson-title-display">Lesson Title</p>
+            </div>
+            <div class="video-controls">
+              <button class="vc-btn" id="vc-play">▶ Play</button>
+              <div class="vc-progress">
+                <div class="vc-bar">
+                  <div class="vc-fill" id="vc-fill" style="width:0%"></div>
+                </div>
+              </div>
+              <span class="vc-time" id="vc-time">0:00 / 12:30</span>
+              <button class="vc-btn" id="vc-fullscreen">⛶</button>
+            </div>
+          </div>
+
+          <div class="lesson-meta">
+            <h2 id="lesson-heading">Lesson Name</h2>
+            <p id="lesson-desc">Lesson description will appear here.</p>
+          </div>
+
+          <div class="lesson-tabs">
+            <button class="tab active" data-lesson-tab="overview">Overview</button>
+            <button class="tab" data-lesson-tab="resources">Resources</button>
+            <button class="tab" data-lesson-tab="notes">My Notes</button>
+            <button class="tab" data-lesson-tab="qa">Q&A</button>
+          </div>
+          <div class="lesson-tab-content" id="lesson-tab-content">
+            <p>This lesson covers the fundamentals of the topic. Watch the video and complete the exercises below.</p>
+          </div>
+
+          <div class="lesson-nav-btns">
+            <button class="btn-secondary" id="btn-prev-lesson">← Previous</button>
+            <button class="btn-primary" id="btn-next-lesson">Next Lesson →</button>
+          </div>
+        </div>
+
+        <!-- Sidebar: Course curriculum -->
+        <aside class="lesson-sidebar">
+          <h3 id="course-title-sidebar">Course Title</h3>
+          <div class="curriculum" id="curriculum-list"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== VIEW: PROGRESS ===== -->
+    <section class="view" id="view-progress">
+      <div class="page-header">
+        <h1>Learning Progress</h1>
+        <p class="subtitle">Track your achievements and learning streaks.</p>
+      </div>
+
+      <div class="progress-overview">
+        <div class="streak-card">
+          <div class="streak-number">7</div>
+          <div class="streak-label">🔥 Day Streak</div>
+        </div>
+        <div class="streak-card">
+          <div class="streak-number">1,240</div>
+          <div class="streak-label">⭐ XP Points</div>
+        </div>
+        <div class="streak-card">
+          <div class="streak-number">48</div>
+          <div class="streak-label">📖 Lessons Done</div>
+        </div>
+        <div class="streak-card">
+          <div class="streak-number">33%</div>
+          <div class="streak-label">🎯 Avg. Completion</div>
+        </div>
+      </div>
+
+      <h2 style="margin:2rem 0 1rem;">Weekly Activity</h2>
+      <div class="activity-chart">
+        <div class="bar-group">
+          <div class="bar" style="height:40%"><span>Mon</span></div>
+          <div class="bar" style="height:70%"><span>Tue</span></div>
+          <div class="bar" style="height:55%"><span>Wed</span></div>
+          <div class="bar" style="height:90%"><span>Thu</span></div>
+          <div class="bar" style="height:30%"><span>Fri</span></div>
+          <div class="bar active-bar" style="height:75%"><span>Sat</span></div>
+          <div class="bar" style="height:20%"><span>Sun</span></div>
+        </div>
+      </div>
+
+      <h2 style="margin:2rem 0 1rem;">Course Progress</h2>
+      <div class="progress-course-list" id="progress-course-list"></div>
+    </section>
+
+    <!-- ===== VIEW: CERTIFICATES ===== -->
+    <section class="view" id="view-certificates">
+      <div class="page-header">
+        <h1>My Certificates</h1>
+        <p class="subtitle">Showcase your achievements.</p>
+      </div>
+      <div class="cert-grid" id="cert-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
